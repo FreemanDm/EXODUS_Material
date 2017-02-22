@@ -7,179 +7,120 @@
     tools:context="com.freeman.exodusmaterial.exodus_material.Activity.FindActivity">
 
     <LinearLayout
+        android:id="@+id/group_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="110dp"
-        android:orientation="vertical"
-        android:id="@+id/group_view">
+        android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/edit_txt_category"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/ripple"
+                android:hint="Категория"
+                android:textSize="30sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="40dp"
-                    android:paddingRight="10dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/ripple"
-                        android:hint="Категория"
-                        android:textSize="30sp"
-                        android:id="@+id/edit_txt_category"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/ripple"
-                        android:hint="Регион"
-                        android:textSize="30sp"
-                        android:id="@+id/edit_txt_region"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/ripple"
-                        android:hint="Город"
-                        android:textSize="30sp"
-                        android:id="@+id/edit_txt_city"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/ripple"
-                        android:hint="Адрес"
-                        android:textSize="30sp"
-                        android:id="@+id/edit_txt_address"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/ripple"
-                        android:hint="Организация"
-                        android:textSize="30sp"
-                        android:id="@+id/edit_txt_organization"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/ripple"
-                        android:hint="Телефон"
-                        android:textSize="30sp"
-                        android:inputType="phone"
-                        android:id="@+id/edit_txt_phone"/>
-
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
+            <EditText
+                android:id="@+id/edit_txt_region"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="3">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="40dp">
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:id="@+id/chk_box_category"/>
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:id="@+id/chk_box_region"/>
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:id="@+id/chk_box_city"/>
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:id="@+id/chk_box_address"/>
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:id="@+id/chk_box_organization"/>
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:id="@+id/chk_box_phone"/>
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/ripple"
+                android:hint="Регион"
+                android:textSize="30sp" />
 
-                </LinearLayout>
-            </LinearLayout>
+            <EditText
+                android:id="@+id/edit_txt_city"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/ripple"
+                android:hint="Город"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/edit_txt_address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/ripple"
+                android:hint="Адрес"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/edit_txt_organization"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/ripple"
+                android:hint="Организация"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/edit_txt_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/ripple"
+                android:hint="Телефон"
+                android:inputType="phone"
+                android:textSize="30sp" />
+
         </LinearLayout>
+
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_find"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Поиск"
+                android:textAllCaps="false"
+                android:textSize="35sp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2.5"
-                android:orientation="vertical">
+                android:layout_weight="6"
+                android:orientation="horizontal">
+
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Поиск"
-                    android:textAllCaps="false"
-                    android:textSize="35sp"
-                    android:id="@+id/btn_find"/>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5" />
 
-                <LinearLayout
+                <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="6"
-                    android:orientation="horizontal">
+                    android:layout_weight="1" />
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5" />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5" />
-                </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5" />
+            </LinearLayout>
 
         </LinearLayout>
 

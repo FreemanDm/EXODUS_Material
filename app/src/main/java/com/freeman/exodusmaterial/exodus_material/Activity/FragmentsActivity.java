@@ -2,19 +2,18 @@ package com.freeman.exodusmaterial.exodus_material.Activity;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.TextView;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
+
+import com.freeman.exodusmaterial.exodus_material.Fragments.MapFragment;
 import com.freeman.exodusmaterial.exodus_material.R;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -28,13 +27,12 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.Badgeable;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
-public class FragmentsActivity extends AppCompatActivity{
+public class FragmentsActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private FrameLayout container;
     private FragmentManager manager;
-    private TextView resultText;
 
     private Drawer drawerResult = null;
     /**
@@ -46,7 +44,14 @@ public class FragmentsActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragments);
+        setContentView(R.layout.activity_fragments_v2);
+
+        container = (FrameLayout) findViewById(R.id.fragment_container);
+        manager = getFragmentManager();
+        MapFragment mapFragment = new MapFragment();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.fragment_container, mapFragment, "Map_Fragment");
+        transaction.commit();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -193,4 +198,14 @@ public class FragmentsActivity extends AppCompatActivity{
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+//    @Override
+//    public void onBackStackChanged() {
+//
+//    }
 }

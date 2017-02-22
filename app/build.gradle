@@ -34,6 +34,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.mikepenz:iconics-core:2.8.2@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
-    testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services:10.0.1'
+    compile 'com.android.support:support-v13:25.1.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-maps:10.0.1'
 }
