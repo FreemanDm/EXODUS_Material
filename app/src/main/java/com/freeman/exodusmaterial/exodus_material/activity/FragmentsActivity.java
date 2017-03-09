@@ -108,6 +108,7 @@ public class FragmentsActivity extends AppCompatActivity implements View.OnClick
                         if (drawerItem.getIdentifier() == 1) {
                             Intent intent = new Intent(FragmentsActivity.this, StartActivity.class);
                             startActivity(intent);
+
 //                            Toast.makeText(FragmentsActivity.this, FragmentsActivity.this.getString(((Nameable) drawerItem).getNameRes()), Toast.LENGTH_SHORT).show();
                         }
 //                        if (drawerItem instanceof Badgeable) {
