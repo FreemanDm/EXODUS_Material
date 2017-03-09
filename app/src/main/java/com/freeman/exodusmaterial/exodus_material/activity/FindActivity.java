@@ -1,4 +1,4 @@
-package com.freeman.exodusmaterial.exodus_material.Activity;
+package com.freeman.exodusmaterial.exodus_material.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,15 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.freeman.exodusmaterial.exodus_material.GetDataTask;
 import com.freeman.exodusmaterial.exodus_material.R;
-
-import static android.R.attr.checked;
 
 public class FindActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editTxtCategory, editTxtRegion, editTxtCity;

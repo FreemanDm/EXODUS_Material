@@ -1,4 +1,4 @@
-package com.freeman.exodusmaterial.exodus_material.Activity;
+package com.freeman.exodusmaterial.exodus_material.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

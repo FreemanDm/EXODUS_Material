@@ -4,7 +4,7 @@
     android:id="@+id/activity_find"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.freeman.exodusmaterial.exodus_material.Activity.FindActivity">
+    tools:context="com.freeman.exodusmaterial.exodus_material.activity.FindActivity">
 
     <LinearLayout
         android:id="@+id/group_view"

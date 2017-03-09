@@ -1,19 +1,21 @@
-package com.freeman.exodusmaterial.exodus_material.Activity;
+package com.freeman.exodusmaterial.exodus_material.activity;
 
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 
-import com.freeman.exodusmaterial.exodus_material.Fragments.MapFragment;
+import com.freeman.exodusmaterial.exodus_material.fragments.FindFragment;
+import com.freeman.exodusmaterial.exodus_material.fragments.MapFragment;
 import com.freeman.exodusmaterial.exodus_material.R;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -28,10 +30,11 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
 public class FragmentsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private FrameLayout container;
+    private FrameLayout containerTop, containerBottom;
     private FragmentManager manager;
 
     private Drawer drawerResult = null;
@@ -44,13 +47,16 @@ public class FragmentsActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragments_v2);
+        setContentView(R.layout.activity_fragments);
 
-        container = (FrameLayout) findViewById(R.id.fragment_container);
+        containerTop = (FrameLayout) findViewById(R.id.fragment_container_top);
+        containerBottom = (FrameLayout) findViewById(R.id.fragment_container_bottom);
         manager = getFragmentManager();
         MapFragment mapFragment = new MapFragment();
+        FindFragment findFragment = new FindFragment();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.fragment_container, mapFragment, "Map_Fragment");
+        transaction.add(R.id.fragment_container_top, mapFragment, "Map_Fragment");
+        transaction.add(R.id.fragment_container_bottom, findFragment, "Find_Fragment");
         transaction.commit();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -70,13 +76,13 @@ public class FragmentsActivity extends AppCompatActivity implements View.OnClick
                 .withHeader(R.layout.drawer_header)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withBadge("99").withIdentifier(1),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_search).withIcon(FontAwesome.Icon.faw_gamepad),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye).withBadge("6").withIdentifier(2),
-                        new SectionDrawerItem().withName(R.string.drawer_item_settings),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_cog),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_question),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_search).withIcon(FontAwesome.Icon.faw_gamepad).withIdentifier(2),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye).withBadge("6").withIdentifier(3),
+                        new SectionDrawerItem().withName(R.string.drawer_item_settings).withIdentifier(4),
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_cog).withIdentifier(5),
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_question).withIdentifier(6),
                         new DividerDrawerItem(),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(FontAwesome.Icon.faw_github).withBadge("12+").withIdentifier(1)
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(FontAwesome.Icon.faw_github).withBadge("12+").withIdentifier(7)
                 )
                 .withOnDrawerListener(new Drawer.OnDrawerListener(){
                     @Override
@@ -99,22 +105,24 @@ public class FragmentsActivity extends AppCompatActivity implements View.OnClick
 
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-//                        if (drawerItem instanceof Nameable) {
+                        if (drawerItem.getIdentifier() == 1) {
+                            Intent intent = new Intent(FragmentsActivity.this, StartActivity.class);
+                            startActivity(intent);
 //                            Toast.makeText(FragmentsActivity.this, FragmentsActivity.this.getString(((Nameable) drawerItem).getNameRes()), Toast.LENGTH_SHORT).show();
-//                        }
+                        }
 //                        if (drawerItem instanceof Badgeable) {
 //                            Badgeable badgeable = (Badgeable) drawerItem;
-////                            if (badgeable.getBadge() != null) {
-////                                // учтите, не делайте так, если ваш бейдж содержит символ "+"
-////                                try {
-////                                    int badge = Integer.valueOf(badgeable.getBadge());
-////                                    if (badge > 0) {
-////                                        drawerResult.updateBadge(String.valueOf(badge - 1), position);
-////                                    }
-////                                } catch (Exception e) {
-////                                    Log.d("test", "Не нажимайте на бейдж, содержащий плюс! :)");
-////                                }
-////                            }
+//                            if (badgeable.getBadge() != null) {
+//                                // учтите, не делайте так, если ваш бейдж содержит символ "+"
+//                                try {
+//                                    int badge = Integer.valueOf(badgeable.getBadge());
+//                                    if (badge > 0) {
+//                                        drawerResult.updateBadge(String.valueOf(badge - 1), position);
+//                                    }
+//                                } catch (Exception e) {
+//                                    Log.d("test", "Не нажимайте на бейдж, содержащий плюс! :)");
+//                                }
+//                            }
 //                        }
                         return false;
                     }

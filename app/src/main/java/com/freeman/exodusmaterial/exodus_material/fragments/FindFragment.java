@@ -1,4 +1,4 @@
-package com.freeman.exodusmaterial.exodus_material.Fragments;
+package com.freeman.exodusmaterial.exodus_material.fragments;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
